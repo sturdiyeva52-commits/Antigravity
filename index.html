@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muqova — O'zbekiston Nashriyotlari Milliy Kitob Maydoni</title>
+  <meta name="description" content="Muqova — O'zbekistonning yetakchi nashriyotlari (Hilol Nashr, Asaxiy Books, Factor Books, Akademnashr va boshqalar) kitoblarini to'g'ridan-to'g'ri xarid qilish maydoni.">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Merriweather (Aesthetic Book Typography) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons for crisp, robust UI elements -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="assets/styles/style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <aside class="top-announcement-bar" aria-label="E'lonlar">
+    <div class="container announcement-content">
+      <div class="announcement-left">
+        <span class="pulse-badge"><i class="fa-solid fa-truck-fast"></i></span>
+        <span>150 000 so'mdan yuqori buyurtmalarga <strong>O'zbekiston bo'ylab bepul yetkazib berish</strong>!</span>
+      </div>
+      <div class="announcement-right">
+        <a href="#nashriyotlar" class="announcement-link"><i class="fa-solid fa-building-columns"></i> 18+ Rasmiy nashriyotlar</a>
+        <span class="sep">|</span>
+        <a href="tel:+998712005544" class="announcement-link"><i class="fa-solid fa-phone"></i> (71) 200-55-44</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Site Header -->
+  <header class="main-header" id="siteHeader">
+    <div class="container header-container">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" aria-label="Muqova bosh sahifasi">
+        <div class="logo-icon-box">
+          <i class="fa-solid fa-book-open"></i>
+        </div>
+        <div class="logo-text-group">
+          <span class="logo-title">Muqova</span>
+          <span class="logo-subtitle">Nashriyotlar maydoni</span>
+        </div>
+      </a>
+
+      <!-- Search Bar -->
+      <div class="header-search-wrapper">
+        <form class="search-form" id="searchForm" role="search" onsubmit="event.preventDefault();">
+          <div class="search-input-box">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input 
+              type="text" 
+              id="globalSearchInput" 
+              placeholder="Kitob nomi, muallif, nashriyot yoki janr qidiring..." 
+              autocomplete="off"
+              aria-label="Kitob qidirish"
+            >
+            <span class="search-kbd-badge" title="Qidiruv tugmasi"><kbd>Ctrl</kbd> <kbd>K</kbd></span>
+            <button type="button" id="clearSearchBtn" class="clear-search-btn" aria-label="Qidiruvni tozalash" style="display: none;">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          <button type="button" class="search-submit-btn" id="searchTriggerBtn">
+            Qidirish
+          </button>
+          
+          <!-- Live Search Suggestions Dropdown -->
+          <div class="search-suggestions-dropdown" id="searchSuggestionsDropdown" style="display: none;">
+            <div class="suggestions-header">
+              <span><i class="fa-solid fa-fire text-amber"></i> Ommabop qidiruvlar:</span>
+            </div>
+            <div class="suggestions-chips">
+              <button type="button" class="sugg-chip" data-query="Atom odatlar">Atom Odatlar</button>
+              <button type="button" class="sugg-chip" data-query="O'tkan kunlar">O'tkan kunlar</button>
+              <button type="button" class="sugg-chip" data-query="Ijtimoiy odoblar">Ijtimoiy odoblar</button>
+              <button type="button" class="sugg-chip" data-query="Hilol Nashr">Hilol Nashr</button>
+              <button type="button" class="sugg-chip" data-query="Asaxiy Books">Asaxiy Books</button>
+              <button type="button" class="sugg-chip" data-query="Kichik shahzoda">Kichik shahzoda</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Header Action Buttons -->
+      <div class="header-actions">
+        
+        <!-- Publisher Upload / Portal CTA -->
+        <button class="btn-publisher-portal" id="openPublisherModalBtn" title="Nashriyotingiz kitoblarini soting">
+          <i class="fa-solid fa-plus-circle"></i>
+          <span class="portal-btn-text">Kitob sotish</span>
+          <span class="badge-publisher">Noshirlarga</span>
+        </button>
+
+        <!-- Theme Toggle (Dark / Light Mode) -->
+        <button class="header-icon-btn theme-toggle-btn" id="themeToggleBtn" aria-label="Tungi rejimni yoqish / o'chirish" title="Tungi / Kunduzgi rejim">
+          <div class="icon-wrap">
+            <i class="fa-solid fa-moon" id="themeToggleIcon"></i>
+          </div>
+          <span class="btn-label" id="themeToggleLabel">Tungi rejim</span>
+        </button>
+
+        <!-- Wishlist Button -->
+        <button class="header-icon-btn" id="openWishlistBtn" aria-label="Sevimlilar ro'yxati">
+          <div class="icon-wrap">
+            <i class="fa-regular fa-heart"></i>
+            <span class="counter-badge" id="wishlistCountBadge">0</span>
+          </div>
+          <span class="btn-label">Sevimlilar</span>
+        </button>
+
+        <!-- Cart Button -->
+        <button class="header-icon-btn cart-btn-accent" id="openCartBtn" aria-label="Xarid savati">
+          <div class="icon-wrap">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="counter-badge" id="cartCountBadge">0</span>
+          </div>
+          <div class="cart-btn-details">
+            <span class="btn-label">Savat</span>
+            <span class="cart-total-preview" id="cartHeaderTotal">0 so'm</span>
+          </div>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Quick Category Navigation Bar -->
+    <nav class="quick-nav-bar" aria-label="Tezkor ruknlar">
+      <div class="container quick-nav-container">
+        <button class="catalog-dropdown-btn" id="categoryMenuToggle">
+          <i class="fa-solid fa-bars-staggered"></i>
+          <span>Barcha bo'limlar</span>
+        </button>
+
+        <div class="quick-categories-scroll" id="quickCategoriesList">
+          <button class="category-chip active" data-category="all">Barchasi</button>
+          <button class="category-chip" data-category="badiiy">Badiiy adabiyot</button>
+          <button class="category-chip" data-category="biznes">Biznes & Rivojlanish</button>
+          <button class="category-chip" data-category="diniy">Diniy-ma'rifiy</button>
+          <button class="category-chip" data-category="psixologiya">Psixologiya</button>
+          <button class="category-chip" data-category="bolalar">Bolalar kitoblari</button>
+          <button class="category-chip" data-category="tarix">Tarixiy</button>
+          <button class="category-chip" data-category="ilmiy">Ilmiy-ommabop</button>
+        </div>
+
+        <a href="#nashriyotlar" class="quick-nav-link-publishers">
+          <i class="fa-solid fa-feather-pointed"></i> Noshirlar ro'yxati
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Page Content -->
+  <main id="mainContent">
+
+    <!-- Hero / Editorial Banner Section -->
+    <section class="hero-editorial-section">
+      <!-- Ambient Lighting Orbs -->
+      <div class="ambient-glow ambient-glow-emerald" aria-hidden="true"></div>
+      <div class="ambient-glow ambient-glow-amber" aria-hidden="true"></div>
+
+      <div class="container hero-grid">
+        
+        <!-- Left: Editorial Billboard -->
+        <div class="hero-billboard">
+          
+          <!-- Live Activity Ticker -->
+          <div class="live-activity-ticker" id="liveActivityTicker">
+            <span class="ticker-pulse"></span>
+            <span class="ticker-text" id="tickerText"><i class="fa-solid fa-bolt text-amber"></i> Hozirgina: Toshkentdan Sardor <strong>"Atom Odatlar"</strong> kitobini xarid qildi</span>
+          </div>
+
+          <div class="billboard-badge">
+            <i class="fa-solid fa-certificate"></i> 100% Asl nashriyot nusxalari
+          </div>
+
+          <h1 class="hero-title">
+            Kitobni bevosita uni chop etgan <span class="highlight-text">nashriyotdan</span> oling.
+          </h1>
+          <p class="hero-description">
+            O'zbekistondagi Hilol Nashr, Asaxiy Books, Factor Books, Akademnashr va boshqa yetakchi nashriyotlarning sara adabiyotlari — vositachilarsiz, asl narxlarda bitta maydonda.
+          </p>
+
+          <div class="hero-actions-row">
+            <a href="#katalog" class="btn btn-primary btn-lg">
+              <i class="fa-solid fa-book-open-reader"></i> Katalogga o'tish
+            </a>
+            <button class="btn btn-outline btn-lg" id="heroAddBookBtn">
+              <i class="fa-solid fa-store"></i> Nashriyot sifatida qo'shilish
+            </button>
+          </div>
+
+          <!-- Trust Badges with modern elevation -->
+          <div class="hero-trust-bar">
+            <div class="trust-item">
+              <i class="fa-solid fa-truck-ramp-box"></i>
+              <div>
+                <strong>Tezkor yetkazish</strong>
+                <span>1-2 kunda butun yurtga</span>
+              </div>
+            </div>
+            <div class="trust-item">
+              <i class="fa-solid fa-shield-halved"></i>
+              <div>
+                <strong>Kafolatlangan sifat</strong>
+                <span>Faqat original nashrlar</span>
+              </div>
+            </div>
+            <div class="trust-item">
+              <i class="fa-solid fa-hand-holding-dollar"></i>
+              <div>
+                <strong>Hamyonbop narxlar</strong>
+                <span>Nashriyotning o'z narxida</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Featured Book Spotlight Card with 3D tilt -->
+        <div class="hero-spotlight-card" id="heroSpotlightBook">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Publishers Showcase Section -->
+    <section class="publishers-section" id="nashriyotlar">
+      <div class="container">
+        <div class="section-heading-row">
+          <div>
+            <span class="subheading-tag">Hamkorlarimiz</span>
+            <h2 class="section-title">O'zbekistonning Yetakchi Nashriyotlari</h2>
+          </div>
+          <p class="section-subtext">Har bir nashriyot o'z kitob javonini o'zi boshqaradi va sifatga javob beradi</p>
+        </div>
+
+        <div class="publishers-grid" id="publishersGrid">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Book Catalog Main Section (Filters + Grid) -->
+    <section class="catalog-section" id="katalog">
+      <div class="container catalog-layout">
+
+        <!-- Mobile Filter Toggle Button -->
+        <div class="mobile-filter-bar">
+          <button class="btn btn-outline" id="mobileFilterOpenBtn">
+            <i class="fa-solid fa-filter"></i> Filtrlash va saralash
+          </button>
+          <span class="catalog-count-info" id="mobileCountInfo">Yuklanmoqda...</span>
+        </div>
+
+        <!-- Filter Sidebar -->
+        <aside class="catalog-sidebar" id="catalogSidebar" aria-label="Kitob filtrlari">
+          <div class="sidebar-header">
+            <h3><i class="fa-solid fa-sliders"></i> Filtrlar</h3>
+            <button type="button" class="btn-reset-filters" id="resetFiltersBtn">
+              <i class="fa-solid fa-rotate-left"></i> Tozalash
+            </button>
+            <button class="sidebar-close-btn" id="mobileFilterCloseBtn" aria-label="Filtrni yopish">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <!-- Active Filter Tags -->
+          <div class="active-filter-tags" id="activeFilterTagsContainer"></div>
+
+          <!-- Filter Group: Nashriyotlar -->
+          <div class="filter-group">
+            <h4 class="filter-title">
+              <span>Nashriyotlar</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </h4>
+            <div class="filter-options-list" id="publisherFilterList">
+              <!-- Checkboxes dynamically generated from books database -->
+            </div>
+          </div>
+
+          <!-- Filter Group: Janrlar / Ruknlar -->
+          <div class="filter-group">
+            <h4 class="filter-title">
+              <span>Janrlar</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </h4>
+            <div class="filter-options-list" id="categoryFilterList">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <!-- Filter Group: Narx oralig'i -->
+          <div class="filter-group">
+            <h4 class="filter-title">
+              <span>Narx (so'm)</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </h4>
+            <div class="price-range-inputs">
+              <div class="price-field">
+                <span>dan</span>
+                <input type="number" id="minPriceInput" placeholder="20 000" min="0" step="5000">
+              </div>
+              <span class="price-dash">—</span>
+              <div class="price-field">
+                <span>gacha</span>
+                <input type="number" id="maxPriceInput" placeholder="250 000" min="0" step="5000">
+              </div>
+            </div>
+            <button class="btn btn-sm btn-outline apply-price-btn" id="applyPriceBtn">
+              Qo'llash
+            </button>
+          </div>
+
+          <!-- Filter Group: Muqova turi -->
+          <div class="filter-group">
+            <h4 class="filter-title">
+              <span>Muqova turi</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </h4>
+            <div class="filter-options-list" id="formatFilterList">
+              <label class="custom-checkbox">
+                <input type="checkbox" name="formatFilter" value="Qattiq">
+                <span class="checkmark"></span>
+                <span class="filter-label-text">Qattiq muqova</span>
+              </label>
+              <label class="custom-checkbox">
+                <input type="checkbox" name="formatFilter" value="Yumshoq">
+                <span class="checkmark"></span>
+                <span class="filter-label-text">Yumshoq muqova</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Filter Group: Til -->
+          <div class="filter-group">
+            <h4 class="filter-title">
+              <span>Nashr tili</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </h4>
+            <div class="filter-options-list" id="langFilterList">
+              <label class="custom-checkbox">
+                <input type="checkbox" name="langFilter" value="O'zbekcha" checked>
+                <span class="checkmark"></span>
+                <span class="filter-label-text">O'zbekcha</span>
+              </label>
+              <label class="custom-checkbox">
+                <input type="checkbox" name="langFilter" value="Ruscha">
+                <span class="checkmark"></span>
+                <span class="filter-label-text">Ruscha</span>
+              </label>
+              <label class="custom-checkbox">
+                <input type="checkbox" name="langFilter" value="Inglizcha">
+                <span class="checkmark"></span>
+                <span class="filter-label-text">Inglizcha</span>
+              </label>
+            </div>
+          </div>
+
+        </aside>
+
+        <!-- Main Catalog Content -->
+        <div class="catalog-main">
+          
+          <!-- Catalog Toolbar -->
+          <div class="catalog-toolbar">
+            <div class="toolbar-left">
+              <h3 class="catalog-results-title" id="resultsCountHeading">Barcha kitoblar</h3>
+              <span class="catalog-results-sub" id="resultsCountSub">Yuklanmoqda...</span>
+            </div>
+
+            <div class="toolbar-right">
+              <!-- Sort Selector -->
+              <div class="sort-selector-wrapper">
+                <label for="sortSelect"><i class="fa-solid fa-arrow-down-short-wide"></i> Saralash:</label>
+                <select id="sortSelect" class="custom-select">
+                  <option value="featured">Tavsiya etilgan</option>
+                  <option value="newest">Eng yangi kitoblar</option>
+                  <option value="price-asc">Narx: Arzondan qimmatga</option>
+                  <option value="price-desc">Narx: Qimmatdan arzonga</option>
+                  <option value="rating">Reytingi yuqorilar</option>
+                  <option value="sales">Eng ko'p xarid qilingan</option>
+                </select>
+              </div>
+
+              <!-- View Layout Switcher (Grid / List) -->
+              <div class="view-mode-switcher" role="group" aria-label="Ko'rinish rejimi">
+                <button class="view-mode-btn active" id="viewModeGrid" aria-label="Katakcha ko'rinishi">
+                  <i class="fa-solid fa-border-all"></i>
+                </button>
+                <button class="view-mode-btn" id="viewModeList" aria-label="Ro'yxat ko'rinishi">
+                  <i class="fa-solid fa-list-ul"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Books Grid Container -->
+          <div class="books-grid" id="booksGrid">
+            <!-- Dynamically populated books -->
+          </div>
+
+          <!-- Empty State (Hidden by default) -->
+          <div class="empty-results-state" id="emptyResultsState" style="display: none;">
+            <div class="empty-icon-wrap">
+              <i class="fa-solid fa-book-skull"></i>
+            </div>
+            <h3>Hech qanday kitob topilmadi</h3>
+            <p>Qidiruv so'zini o'zgartirib ko'ring yoki filtrlarni tozalang.</p>
+            <button class="btn btn-primary" id="emptyResetBtn">
+              <i class="fa-solid fa-rotate-left"></i> Filtrlarni tozalash
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Why Buy Direct From Publishers? (Value Proposition) -->
+    <section class="value-prop-section">
+      <div class="container">
+        <div class="value-prop-card">
+          <div class="value-header">
+            <h2>Nega aynan "Muqova" platformasi?</h2>
+            <p>Biz vositachilarni chetga surib, kitobxon bilan nashriyotni bevosita bog'laymiz</p>
+          </div>
+          <div class="value-grid">
+            <div class="value-item">
+              <div class="value-icon"><i class="fa-solid fa-award"></i></div>
+              <h3>100% Mualliflik himoyasi</h3>
+              <p>Platformadagi har bir kitob mualliflik huquqi asosida faqat rasmiy noshirlar tomonidan taqdim etiladi.</p>
+            </div>
+            <div class="value-item">
+              <div class="value-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+              <h3>Eng adolatli narx</h3>
+              <p>Do'kon ustamalari va uchinchi tomon qo'shimcha to'lovlarisiz noshir belgilagan adolatli narxda olasiz.</p>
+            </div>
+            <div class="value-item">
+              <div class="value-icon"><i class="fa-solid fa-boxes-packing"></i></div>
+              <h3>Chopxonadan to'g'ri qo'lingizga</h3>
+              <p>Kitoblar maxsus ehtiyotkor qadoqda nashriyot omboridan darhol siz ko'rsatgan manzilga jo'natiladi.</p>
+            </div>
+            <div class="value-item">
+              <div class="value-icon"><i class="fa-solid fa-seedling"></i></div>
+              <h3>Noshirlik sohasini qo'llab-quvvatlash</h3>
+              <p>Xaridingiz bevosita o'zbek tilidagi yangi sara kitoblarning tarjima qilinishi va nashr etilishiga hissa qo'shadi.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-top-grid">
+      
+      <div class="footer-col footer-brand-col">
+        <div class="brand-logo footer-logo">
+          <div class="logo-icon-box">
+            <i class="fa-solid fa-book-open"></i>
+          </div>
+          <div class="logo-text-group">
+            <span class="logo-title">Muqova</span>
+            <span class="logo-subtitle">Nashriyotlar maydoni</span>
+          </div>
+        </div>
+        <p class="footer-about-text">
+          O'zbekistonning barcha rasmiy nashriyotlarini yagona elektron maydonda birlashtiruvchi milliy kitob platformasi.
+        </p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Kitobxonlarga</h4>
+        <ul class="footer-links">
+          <li><a href="#katalog">Katalog va yangiliklar</a></li>
+          <li><a href="#nashriyotlar">Hamkor nashriyotlar</a></li>
+          <li><a href="#" id="footerCartLink">Xarid savati</a></li>
+          <li><a href="#" id="footerWishlistLink">Sevimlilar</a></li>
+          <li><a href="#">Yetkazib berish shartlari</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Nashriyotlar uchun</h4>
+        <ul class="footer-links">
+          <li><a href="#" id="footerAddBookLink">Platformada kitob sotish</a></li>
+          <li><a href="#">Noshirlar hamkorlik shartnomasi</a></li>
+          <li><a href="#">Mualliflik huquqi siyosati</a></li>
+          <li><a href="#">Reklama va targ'ibot</a></li>
+          <li><a href="#">Savdo hisobotlari tizimi</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Bog'lanish va Qabul</h4>
+        <div class="footer-contact-item">
+          <i class="fa-solid fa-phone"></i>
+          <div>
+            <span>Mijozlar xizmati:</span>
+            <strong>+998 (71) 200-55-44</strong>
+          </div>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fa-solid fa-envelope"></i>
+          <div>
+            <span>Elektron pochta:</span>
+            <strong>info@muqova.uz</strong>
+          </div>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <div>
+            <span>Bosh ofis:</span>
+            <strong>Toshkent sh., Navoiy ko'chasi, 30</strong>
+          </div>
+        </div>
+        <div class="payment-methods-strip">
+          <span class="pay-chip">Payme</span>
+          <span class="pay-chip">Click</span>
+          <span class="pay-chip">Uzum Bank</span>
+          <span class="pay-chip">Naqd pul</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-flex">
+        <p>&copy; 2026 "Muqova" — O'zbekiston noshirlari milliy kitob maydoni. Barcha huquqlar himoyalangan.</p>
+        <p class="sub-credit">Mualliflik adabiyotlari va nashriyotlar o'rtasida to'g'ridan-to'g'ri aloqa.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================== -->
+  <!-- MODALS & DRAWERS -->
+  <!-- ============================================== -->
+
+  <!-- 1. Cart Slide-Over Drawer -->
+  <div class="drawer-backdrop" id="cartBackdrop"></div>
+  <aside class="side-drawer" id="cartDrawer" aria-label="Savat">
+    <div class="drawer-header">
+      <div class="drawer-title-group">
+        <h3><i class="fa-solid fa-bag-shopping"></i> Savatchangiz</h3>
+        <span class="drawer-count-badge" id="cartDrawerCount">0 ta kitob</span>
+      </div>
+      <button class="drawer-close-btn" id="closeCartBtn" aria-label="Savatni yopish">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Free Delivery Meter -->
+    <div class="delivery-meter-box" id="deliveryMeterBox">
+      <div class="meter-text" id="deliveryMeterText">
+        <span>Bepul yetkazishgacha yana 150 000 so'm qoldi</span>
+      </div>
+      <div class="meter-track">
+        <div class="meter-fill" id="deliveryMeterFill" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <!-- Cart Items Scroll Area -->
+    <div class="drawer-body" id="cartItemsContainer">
+      <!-- Items dynamically injected -->
+    </div>
+
+    <!-- Cart Footer & Checkout -->
+    <div class="drawer-footer" id="cartFooter">
+      <div class="promo-box">
+        <input type="text" id="promoInput" placeholder="Promokod (masalan: KITOBXON)" uppercase>
+        <button type="button" class="btn btn-sm btn-outline" id="applyPromoBtn">Kiritish</button>
+      </div>
+      <div id="promoMessage" class="promo-msg"></div>
+
+      <div class="cart-summary-lines">
+        <div class="summary-line">
+          <span>Kitoblar narxi:</span>
+          <span id="cartSubtotalText">0 so'm</span>
+        </div>
+        <div class="summary-line" id="discountLine" style="display: none;">
+          <span class="text-success">Chegirma (Promokod):</span>
+          <span class="text-success" id="cartDiscountText">-0 so'm</span>
+        </div>
+        <div class="summary-line">
+          <span>Yetkazib berish:</span>
+          <span id="cartDeliveryFeeText">20 000 so'm</span>
+        </div>
+        <div class="summary-line total-line">
+          <strong>Jami to'lov:</strong>
+          <strong class="total-amount" id="cartGrandTotalText">0 so'm</strong>
+        </div>
+      </div>
+
+      <button class="btn btn-primary btn-block btn-lg" id="proceedToCheckoutBtn">
+        <i class="fa-solid fa-credit-card"></i> Buyurtmani rasmiylashtirish
+      </button>
+    </div>
+  </aside>
+
+  <!-- 2. Wishlist Slide-Over Drawer -->
+  <div class="drawer-backdrop" id="wishlistBackdrop"></div>
+  <aside class="side-drawer" id="wishlistDrawer" aria-label="Sevimlilar">
+    <div class="drawer-header">
+      <div class="drawer-title-group">
+        <h3><i class="fa-regular fa-heart"></i> Sevimlilar ro'yxati</h3>
+        <span class="drawer-count-badge" id="wishlistDrawerCount">0 ta</span>
+      </div>
+      <button class="drawer-close-btn" id="closeWishlistBtn" aria-label="Yopish">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="drawer-body" id="wishlistItemsContainer">
+      <!-- Injected by JS -->
+    </div>
+
+    <div class="drawer-footer" id="wishlistFooter" style="display: none;">
+      <button class="btn btn-primary btn-block" id="moveAllWishlistToCartBtn">
+        <i class="fa-solid fa-cart-plus"></i> Hammasini savatga qo'shish
+      </button>
+    </div>
+  </aside>
+
+  <!-- 3. Publisher / Seller Book Upload Modal ("Kitob Sotish") -->
+  <div class="modal-backdrop" id="publisherModalBackdrop">
+    <div class="modal-dialog modal-lg" role="dialog" aria-modal="true" aria-labelledby="publisherModalTitle">
+      <div class="modal-header">
+        <div>
+          <span class="modal-badge"><i class="fa-solid fa-building-columns"></i> Nashriyot maydoni</span>
+          <h3 id="publisherModalTitle">Yangi kitobni sotuvga joylash</h3>
+        </div>
+        <button class="modal-close-btn" id="closePublisherModalBtn" aria-label="Oynani yopish">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form id="addBookForm" class="modal-body">
+        <p class="modal-intro-text">
+          O'zbekistonning mustaqil nashriyotlari yoki mualliflari o'z kitoblarini to'g'ridan-to'g'ri ushbu maydonga joylashlari mumkin. Ma'lumotlarni to'ldiring:
+        </p>
+
+        <div class="form-grid-2">
+          
+          <div class="form-group">
+            <label for="newBookTitle">Kitob nomi <span class="required">*</span></label>
+            <input type="text" id="newBookTitle" placeholder="Masalan: Ikki eshik orasi" required>
+          </div>
+
+          <div class="form-group">
+            <label for="newBookAuthor">Muallif <span class="required">*</span></label>
+            <input type="text" id="newBookAuthor" placeholder="Masalan: O'tkir Hoshimov" required>
+          </div>
+
+          <div class="form-group">
+            <label for="newBookPublisher">Nashriyot nomi <span class="required">*</span></label>
+            <select id="newBookPublisher" required>
+              <option value="">Nashriyotni tanlang</option>
+              <option value="Hilol Nashr">Hilol Nashr</option>
+              <option value="Asaxiy Books">Asaxiy Books</option>
+              <option value="Factor Books">Factor Books</option>
+              <option value="Akademnashr">Akademnashr</option>
+              <option value="Nihol Nashr">Nihol Nashr</option>
+              <option value="Yangi Asr Avlodi">Yangi Asr Avlodi</option>
+              <option value="Sharq Nashriyoti">Sharq Nashriyoti</option>
+              <option value="O'zbekiston Nashriyoti">O'zbekiston Nashriyoti</option>
+              <option value="Boshqa nashriyot">+ Boshqa (Yangi nashriyot)</option>
+            </select>
+          </div>
+
+          <div class="form-group" id="customPublisherBox" style="display: none;">
+            <label for="newCustomPublisher">Yangi nashriyot nomi</label>
+            <input type="text" id="newCustomPublisher" placeholder="Nashriyot rasmiy nomini yozing">
+          </div>
+
+          <div class="form-group">
+            <label for="newBookCategory">Rukn / Janr <span class="required">*</span></label>
+            <select id="newBookCategory" required>
+              <option value="badiiy">Badiiy adabiyot</option>
+              <option value="biznes">Biznes & Rivojlanish</option>
+              <option value="diniy">Diniy-ma'rifiy</option>
+              <option value="psixologiya">Psixologiya & Jamiyat</option>
+              <option value="bolalar">Bolalar adabiyoti</option>
+              <option value="tarix">Tarixiy adabiyot</option>
+              <option value="ilmiy">Ilmiy-ommabop</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="newBookPrice">Narxi (so'm) <span class="required">*</span></label>
+            <input type="number" id="newBookPrice" placeholder="Masalan: 65000" min="5000" step="1000" required>
+          </div>
+
+          <div class="form-group">
+            <label for="newBookPages">Sahifalar soni</label>
+            <input type="number" id="newBookPages" placeholder="Masalan: 384" min="10">
+          </div>
+
+          <div class="form-group">
+            <label for="newBookFormat">Muqova turi</label>
+            <select id="newBookFormat">
+              <option value="Qattiq">Qattiq muqova</option>
+              <option value="Yumshoq">Yumshoq muqova</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="newBookLang">Nashr tili</label>
+            <select id="newBookLang">
+              <option value="O'zbekcha">O'zbekcha</option>
+              <option value="Ruscha">Ruscha</option>
+              <option value="Inglizcha">Inglizcha</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="form-group">
+          <label for="newBookCover">Muqova rasmi (URL havola yoki namunaviy muqovalardan biri)</label>
+          <div class="cover-input-group">
+            <input type="url" id="newBookCover" placeholder="https://... rasm manzili (ixtiyoriy)">
+            <button type="button" class="btn btn-sm btn-outline" id="pickPresetCoverBtn">
+              Namunaviy muqovalar
+            </button>
+          </div>
+          <div class="preset-covers-bar" id="presetCoversBar" style="display: none;">
+            <!-- Render sample covers to pick -->
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="newBookDesc">Kitob haqida qisqacha tavsif (Annotatsiya)</label>
+          <textarea id="newBookDesc" rows="3" placeholder="Kitobning asosiy g'oyasi, kimlarga tavsiya etilishi haqida yozing..."></textarea>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" id="cancelAddBookBtn">Bekor qilish</button>
+          <button type="submit" class="btn btn-primary">
+            <i class="fa-solid fa-check"></i> Sotuvga chiqarish
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 4. Quick View / Book Detail Modal -->
+  <div class="modal-backdrop" id="quickViewBackdrop">
+    <div class="modal-dialog modal-xl" role="dialog" aria-modal="true">
+      <div class="modal-header quick-view-header">
+        <span class="quick-view-publisher-tag" id="qvPublisherBadge">Nashriyot</span>
+        <button class="modal-close-btn" id="closeQuickViewBtn" aria-label="Yopish">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal-body quick-view-body" id="quickViewContent">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 4.1 Book Excerpt / Sample Reader Modal -->
+  <div class="modal-backdrop" id="excerptBackdrop">
+    <div class="modal-dialog modal-lg excerpt-modal-dialog" role="dialog" aria-modal="true">
+      <div class="modal-header">
+        <div>
+          <span class="modal-badge"><i class="fa-solid fa-book-open-reader"></i> Mutolaa xonasi</span>
+          <h3 id="excerptBookTitle">Kitobdan parcha</h3>
+        </div>
+        <button class="modal-close-btn" id="closeExcerptBtn" aria-label="Yopish">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal-body excerpt-modal-body">
+        <div class="virtual-book-page">
+          <div class="page-top-line">
+            <span id="excerptPublisherLabel">Hilol Nashr</span>
+            <span id="excerptAuthorLabel">Muallif</span>
+          </div>
+          <div class="page-body-text" id="excerptBodyText">
+            <!-- Injected by JS -->
+          </div>
+          <div class="page-footer-decor">
+            <span>&bull; Mualliflik huquqi bilan himoyalangan &bull;</span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer excerpt-modal-footer">
+        <span class="excerpt-footer-note"><i class="fa-solid fa-shield-check text-success"></i> To'liq asl nusxasini xarid qilish uchun savatga qo'shing</span>
+        <button class="btn btn-primary" id="excerptAddToCartBtn">
+          <i class="fa-solid fa-bag-shopping"></i> Savatga olish
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Checkout Modal (Tezkor buyurtma berish) -->
+  <div class="modal-backdrop" id="checkoutBackdrop">
+    <div class="modal-dialog modal-lg" role="dialog" aria-modal="true">
+      <div class="modal-header">
+        <div>
+          <span class="modal-badge"><i class="fa-solid fa-lock"></i> Xavfsiz xarid</span>
+          <h3>Buyurtmani rasmiylashtirish</h3>
+        </div>
+        <button class="modal-close-btn" id="closeCheckoutBtn" aria-label="Yopish">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="modal-body" id="checkoutBody">
+        <form id="checkoutForm">
+          <div class="checkout-grid">
+            
+            <!-- Left: Delivery info -->
+            <div class="checkout-fields">
+              <h4>1. Qabul qiluvchi ma'lumotlari</h4>
+              
+              <div class="form-group">
+                <label for="orderName">Ism va familiyangiz <span class="required">*</span></label>
+                <input type="text" id="orderName" placeholder="Masalan: Sardor Aliyev" required>
+              </div>
+
+              <div class="form-group">
+                <label for="orderPhone">Telefon raqamingiz <span class="required">*</span></label>
+                <input type="tel" id="orderPhone" placeholder="+998 90 123-45-67" required>
+              </div>
+
+              <div class="form-group">
+                <label for="orderRegion">Viloyat / Shahar <span class="required">*</span></label>
+                <select id="orderRegion" required>
+                  <option value="Toshkent shahri">Toshkent shahri</option>
+                  <option value="Toshkent viloyati">Toshkent viloyati</option>
+                  <option value="Samarqand">Samarqand</option>
+                  <option value="Buxoro">Buxoro</option>
+                  <option value="Farg'ona">Farg'ona</option>
+                  <option value="Andijon">Andijon</option>
+                  <option value="Namangan">Namangan</option>
+                  <option value="Xorazm">Xorazm</option>
+                  <option value="Qashqadaryo">Qashqadaryo</option>
+                  <option value="Surxondaryo">Surxondaryo</option>
+                  <option value="Jizzax">Jizzax</option>
+                  <option value="Sirdaryo">Sirdaryo</option>
+                  <option value="Navoiy">Navoiy</option>
+                  <option value="Qoraqalpog'iston">Qoraqalpog'iston Respublikasi</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="orderAddress">Yetkazish manzili (Tuman, ko'cha, uy, xonadon) <span class="required">*</span></label>
+                <textarea id="orderAddress" rows="2" placeholder="Masalan: Chilonzor tumani, 9-mavze, 14-uy, 28-xonadon" required></textarea>
+              </div>
+
+              <h4>2. To'lov turi</h4>
+              <div class="payment-options-grid">
+                <label class="pay-option-card">
+                  <input type="radio" name="paymentMethod" value="Payme" checked>
+                  <div class="pay-card-inner">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <strong>Payme</strong>
+                    <span>Karta orqali online</span>
+                  </div>
+                </label>
+
+                <label class="pay-option-card">
+                  <input type="radio" name="paymentMethod" value="Click">
+                  <div class="pay-card-inner">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                    <strong>Click</strong>
+                    <span>Tezkor to'lov</span>
+                  </div>
+                </label>
+
+                <label class="pay-option-card">
+                  <input type="radio" name="paymentMethod" value="Naqd">
+                  <div class="pay-card-inner">
+                    <i class="fa-solid fa-money-bill-wave"></i>
+                    <strong>Qabulda</strong>
+                    <span>Yetkazilganda naqd</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Right: Order mini-review -->
+            <div class="checkout-review-card">
+              <h4>Buyurtma xulosasi</h4>
+              <div class="checkout-items-preview" id="checkoutItemsPreview">
+                <!-- Injected items -->
+              </div>
+              <div class="checkout-totals">
+                <div class="summary-line">
+                  <span>Kitoblar:</span>
+                  <span id="coSubtotal">0 so'm</span>
+                </div>
+                <div class="summary-line" id="coDiscountRow" style="display: none;">
+                  <span class="text-success">Chegirma:</span>
+                  <span class="text-success" id="coDiscount">-0 so'm</span>
+                </div>
+                <div class="summary-line">
+                  <span>Yetkazish:</span>
+                  <span id="coDelivery">0 so'm</span>
+                </div>
+                <div class="summary-line total-line">
+                  <strong>Jami:</strong>
+                  <strong class="total-amount" id="coTotal">0 so'm</strong>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block btn-lg" id="submitOrderBtn">
+                <i class="fa-solid fa-circle-check"></i> Buyurtmani tasdiqlash
+              </button>
+
+              <div class="security-guarantee">
+                <i class="fa-solid fa-shield-check"></i> Ma'lumotlaringiz shifrlangan va xavfsiz himoyalangan.
+              </div>
+            </div>
+
+          </div>
+        </form>
+      </div>
+
+      <!-- Checkout Success Screen (Shown after ordering) -->
+      <div class="modal-body checkout-success-screen" id="checkoutSuccessScreen" style="display: none;">
+        <div class="success-icon-wrap">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+        <h2>Buyurtmangiz muvaffaqiyatli qabul qilindi!</h2>
+        <p class="order-id-badge">Buyurtma raqami: <strong id="successOrderId">#MQ-84920</strong></p>
+        <p class="success-desc">
+          Nashriyot mutaxassisi tez orada buyurtmani tasdiqlash va jo'natish uchun <strong id="successPhoneDisplay">+998 90 ...</strong> raqamingiz bilan bog'lanadi.
+        </p>
+
+        <div class="success-next-steps">
+          <div class="step-card">
+            <span class="step-num">1</span>
+            <span>Nashriyot omboridan tayyorlash</span>
+          </div>
+          <div class="step-card">
+            <span class="step-num">2</span>
+            <span>Kuryerga topshirish</span>
+          </div>
+          <div class="step-card">
+            <span class="step-num">3</span>
+            <span>Manzilga eshikkacha yetkazish</span>
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-lg" id="successDoneBtn">
+          <i class="fa-solid fa-book"></i> Yana kitob tanlash
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Floating Toast Notifications Container -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Mobile Bottom Sticky Navigation -->
+  <nav class="mobile-bottom-nav" aria-label="Mobil menyu">
+    <a href="index.html" class="mob-nav-item active">
+      <i class="fa-solid fa-house"></i>
+      <span>Bosh sahifa</span>
+    </a>
+    <a href="#katalog" class="mob-nav-item">
+      <i class="fa-solid fa-book"></i>
+      <span>Katalog</span>
+    </a>
+    <button class="mob-nav-item" id="mobOpenPublisherBtn">
+      <i class="fa-solid fa-circle-plus"></i>
+      <span>Sotish</span>
+    </button>
+    <button class="mob-nav-item" id="mobOpenWishlistBtn">
+      <div class="mob-icon-wrap">
+        <i class="fa-regular fa-heart"></i>
+        <span class="mob-badge" id="mobWishlistBadge">0</span>
+      </div>
+      <span>Sevimlilar</span>
+    </button>
+    <button class="mob-nav-item" id="mobThemeToggleBtn" aria-label="Rejimni o'zgartirish">
+      <i class="fa-solid fa-moon" id="mobThemeToggleIcon"></i>
+      <span id="mobThemeToggleLabel">Rejim</span>
+    </button>
+    <button class="mob-nav-item" id="mobOpenCartBtn">
+      <div class="mob-icon-wrap">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span class="mob-badge" id="mobCartBadge">0</span>
+      </div>
+      <span>Savat</span>
+    </button>
+  </nav>
+
+  <!-- Main JavaScript Logic -->
+  <script src="script.js"></script>
+</body>
+</html>

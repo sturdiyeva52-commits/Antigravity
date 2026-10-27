@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" width="100%" height="100%">
+  <defs>
+    <linearGradient id="maroonBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4A0E17" />
+      <stop offset="50%" stop-color="#2D070D" />
+      <stop offset="100%" stop-color="#1A0206" />
+    </linearGradient>
+    <linearGradient id="goldLeaf" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#EAB308" />
+      <stop offset="50%" stop-color="#FEF08A" />
+      <stop offset="100%" stop-color="#CA8A04" />
+    </linearGradient>
+  </defs>
+
+  <!-- Base Leather -->
+  <rect width="600" height="900" fill="url(#maroonBg)" />
+
+  <!-- 3D Spine Crease -->
+  <rect x="0" y="0" width="28" height="900" fill="#000000" opacity="0.4" />
+  <rect x="28" y="0" width="4" height="900" fill="#FFFFFF" opacity="0.08" />
+
+  <!-- Double Gold Foil Border -->
+  <rect x="45" y="45" width="510" height="810" rx="4" fill="none" stroke="url(#goldLeaf)" stroke-width="2.5" />
+  <rect x="55" y="55" width="490" height="790" rx="3" fill="none" stroke="url(#goldLeaf)" stroke-width="1" stroke-dasharray="8 4" />
+
+  <!-- Bismillah Ornament Top -->
+  <circle cx="300" cy="130" r="45" fill="none" stroke="url(#goldLeaf)" stroke-width="1.5" />
+  <polygon points="300,95 325,120 300,145 275,120" fill="none" stroke="url(#goldLeaf)" stroke-width="1.5" />
+  <polygon points="300,105 315,120 300,135 285,120" fill="url(#goldLeaf)" opacity="0.4" />
+
+  <!-- Author -->
+  <text x="300" y="235" font-family="'Merriweather', Georgia, serif" font-size="22" font-weight="700" letter-spacing="2" fill="#E2E8F0" text-anchor="middle">
+    IMOM NAVAVIY
+  </text>
+  <line x1="220" y1="250" x2="380" y2="250" stroke="url(#goldLeaf)" stroke-width="1.5" />
+
+  <!-- Title Centerpiece -->
+  <text x="300" y="340" font-family="'Merriweather', Georgia, serif" font-size="38" font-weight="900" letter-spacing="2" fill="url(#goldLeaf)" text-anchor="middle">
+    RIYOZUS-SOLIHIYN
+  </text>
+  <text x="300" y="390" font-family="'Merriweather', Georgia, serif" font-size="28" font-weight="700" letter-spacing="4" fill="#FFFFFF" text-anchor="middle">
+    SHARHI
+  </text>
+
+  <!-- Medallion Centerpiece -->
+  <g transform="translate(300, 520)">
+    <circle cx="0" cy="0" r="85" fill="none" stroke="url(#goldLeaf)" stroke-width="2" />
+    <circle cx="0" cy="0" r="75" fill="none" stroke="url(#goldLeaf)" stroke-width="1" stroke-dasharray="4 4" />
+    <circle cx="0" cy="0" r="65" fill="#3B0810" stroke="url(#goldLeaf)" stroke-width="1" />
+    <text x="0" y="8" font-family="'Merriweather', Georgia, serif" font-size="20" font-weight="700" fill="url(#goldLeaf)" text-anchor="middle">
+      1-JUZ
+    </text>
+  </g>
+
+  <text x="300" y="680" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="15" font-weight="600" letter-spacing="1" fill="#E2E8F0" text-anchor="middle">
+    Muborak hadislar va ularning sharhlari
+  </text>
+
+  <!-- Publisher Footer -->
+  <g transform="translate(300, 785)">
+    <path d="M-15,-10 C-5,-10 0,-5 0,0 C0,-5 5,-10 15,-10" fill="none" stroke="url(#goldLeaf)" stroke-width="2" />
+    <text x="0" y="25" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="18" font-weight="800" letter-spacing="3" fill="url(#goldLeaf)" text-anchor="middle">
+      HILOL NASHR
+    </text>
+  </g>
+</svg>

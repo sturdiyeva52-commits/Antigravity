@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" width="100%" height="100%">
+  <defs>
+    <linearGradient id="duneSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E130B" />
+      <stop offset="40%" stop-color="#7C2D12" />
+      <stop offset="100%" stop-color="#C2410C" />
+    </linearGradient>
+    <linearGradient id="sandDune1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#9A3412" />
+      <stop offset="100%" stop-color="#EA580C" />
+    </linearGradient>
+    <linearGradient id="sandDune2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7C2D12" />
+      <stop offset="100%" stop-color="#C2410C" />
+    </linearGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="600" height="900" fill="url(#duneSky)" />
+
+  <!-- 3D Spine Crease -->
+  <rect x="0" y="0" width="28" height="900" fill="#000000" opacity="0.45" />
+  <rect x="28" y="0" width="4" height="900" fill="#FFFFFF" opacity="0.08" />
+
+  <!-- Giant Moons of Arrakis -->
+  <circle cx="440" cy="240" r="85" fill="#FED7AA" opacity="0.85" />
+  <circle cx="360" cy="190" r="35" fill="#FDBA74" opacity="0.75" />
+
+  <!-- Sweeping Desert Dunes -->
+  <path d="M0,520 Q180,440 380,510 T600,480 L600,900 L0,900 Z" fill="url(#sandDune1)" />
+  <path d="M0,640 Q220,580 420,650 T600,620 L600,900 L0,900 Z" fill="url(#sandDune2)" />
+  <path d="M0,740 Q280,690 600,750 L600,900 L0,900 Z" fill="#431407" />
+
+  <!-- Author -->
+  <text x="300" y="110" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="22" font-weight="800" letter-spacing="6" fill="#FED7AA" text-anchor="middle">
+    FRENK GERBERT
+  </text>
+  <line x1="220" y1="125" x2="380" y2="125" stroke="#F97316" stroke-width="2" />
+
+  <!-- Sci-Fi Title DUNE -->
+  <text x="300" y="380" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="92" font-weight="900" letter-spacing="18" fill="#FFFFFF" text-anchor="middle">
+    DUNE
+  </text>
+
+  <text x="300" y="420" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="16" font-weight="700" letter-spacing="3" fill="#FED7AA" text-anchor="middle">
+    SAHRO SAYYORASI
+  </text>
+
+  <!-- Publisher Footer -->
+  <rect x="200" y="805" width="200" height="40" rx="4" fill="#1C1917" stroke="#44403C" stroke-width="1" />
+  <text x="300" y="830" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="15" font-weight="800" letter-spacing="2" fill="#FED7AA" text-anchor="middle">
+    ASAXIY BOOKS
+  </text>
+</svg>

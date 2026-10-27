@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="60%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F59E0B" />
+      <stop offset="50%" stop-color="#FDE68A" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+    <radialGradient id="prism" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.9" />
+      <stop offset="40%" stop-color="#818CF8" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#1E293B" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Book Base Background -->
+  <rect width="600" height="900" fill="url(#bg)" />
+
+  <!-- 3D Spine Crease -->
+  <rect x="0" y="0" width="28" height="900" fill="#000000" opacity="0.35" />
+  <rect x="28" y="0" width="4" height="900" fill="#FFFFFF" opacity="0.08" />
+
+  <!-- Geometric Focus Artwork -->
+  <circle cx="300" cy="460" r="160" fill="url(#prism)" />
+  <circle cx="300" cy="460" r="140" fill="none" stroke="url(#gold)" stroke-width="2" stroke-dasharray="6 4" />
+  <circle cx="300" cy="460" r="90" fill="none" stroke="#38BDF8" stroke-width="3" />
+  <circle cx="300" cy="460" r="40" fill="none" stroke="#FDE68A" stroke-width="2" />
+  <circle cx="300" cy="460" r="8" fill="#FDE68A" />
+  
+  <!-- Optical Crosshairs -->
+  <line x1="120" y1="460" x2="480" y2="460" stroke="#38BDF8" stroke-width="1.5" stroke-opacity="0.4" />
+  <line x1="300" y1="280" x2="300" y2="640" stroke="#38BDF8" stroke-width="1.5" stroke-opacity="0.4" />
+
+  <!-- Author Name -->
+  <text x="300" y="150" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="24" font-weight="700" letter-spacing="4" fill="#94A3B8" text-anchor="middle">
+    KEL NYUPOPT
+  </text>
+  
+  <line x1="240" y1="175" x2="360" y2="175" stroke="#F59E0B" stroke-width="2" />
+
+  <!-- Title -->
+  <text x="300" y="240" font-family="'Merriweather', Georgia, serif" font-size="52" font-weight="900" letter-spacing="3" fill="#FFFFFF" text-anchor="middle">
+    DIQQAT
+  </text>
+
+  <text x="300" y="275" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="16" font-weight="600" letter-spacing="1.5" fill="#38BDF8" text-anchor="middle">
+    CHALG'ITUVCHI DUNYODA MUVAFFAQIYAT SIRLARI
+  </text>
+
+  <!-- Tagline Quote -->
+  <text x="300" y="700" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="15" font-weight="400" font-style="italic" fill="#94A3B8" text-anchor="middle">
+    "Jahon bo'ylab 1 000 000 dan ortiq sotilgan bestseller"
+  </text>
+
+  <!-- Publisher Footer -->
+  <rect x="200" y="795" width="200" height="42" rx="6" fill="#1E293B" stroke="#334155" stroke-width="1" />
+  <text x="300" y="822" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="16" font-weight="800" letter-spacing="2" fill="url(#gold)" text-anchor="middle">
+    FACTOR BOOKS
+  </text>
+</svg>

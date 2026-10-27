@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" width="100%" height="100%">
+  <defs>
+    <linearGradient id="warmSun" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#78350F" />
+      <stop offset="40%" stop-color="#B45309" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="900" fill="url(#warmSun)" />
+
+  <!-- 3D Spine Crease -->
+  <rect x="0" y="0" width="28" height="900" fill="#000000" opacity="0.35" />
+  <rect x="28" y="0" width="4" height="900" fill="#FFFFFF" opacity="0.08" />
+
+  <!-- Frame -->
+  <rect x="40" y="40" width="520" height="820" rx="8" fill="none" stroke="#FDE68A" stroke-width="2" />
+  <rect x="50" y="50" width="500" height="800" rx="6" fill="none" stroke="#FEF3C7" stroke-width="1" stroke-dasharray="6 4" />
+
+  <!-- Author -->
+  <text x="300" y="160" font-family="'Merriweather', Georgia, serif" font-size="24" font-weight="700" letter-spacing="4" fill="#FEF3C7" text-anchor="middle">
+    MARK TVEN
+  </text>
+  <line x1="220" y1="180" x2="380" y2="180" stroke="#FEF3C7" stroke-width="1.5" />
+
+  <!-- Title -->
+  <text x="300" y="270" font-family="'Merriweather', Georgia, serif" font-size="44" font-weight="900" letter-spacing="2" fill="#FFFFFF" text-anchor="middle">
+    TOM SOYERNING
+  </text>
+  <text x="300" y="325" font-family="'Merriweather', Georgia, serif" font-size="34" font-weight="900" letter-spacing="3" fill="#FEF3C7" text-anchor="middle">
+    SARGUZASHTLARI
+  </text>
+
+  <!-- Steamboat on River Silhouette -->
+  <g transform="translate(300, 520) scale(1.1)">
+    <!-- Water waves -->
+    <path d="M-200,60 Q-150,45 -100,60 T0,60 T100,60 T200,60 L200,100 L-200,100 Z" fill="#451A03" opacity="0.8" />
+    <!-- Boat hull -->
+    <path d="M-110,40 L110,40 L90,65 L-90,65 Z" fill="#292524" />
+    <!-- Cabins and chimneys -->
+    <rect x="-60" y="10" width="120" height="30" fill="#44403C" />
+    <rect x="-40" y="-15" width="80" height="25" fill="#78716C" />
+    <rect x="-25" y="-45" width="10" height="30" fill="#1C1917" />
+    <rect x="15" y="-45" width="10" height="30" fill="#1C1917" />
+    <!-- Smoke puffs -->
+    <circle cx="-20" cy="-60" r="10" fill="#FEF3C7" opacity="0.3" />
+    <circle cx="-15" cy="-80" r="15" fill="#FEF3C7" opacity="0.2" />
+    <circle cx="20" cy="-60" r="8" fill="#FEF3C7" opacity="0.3" />
+  </g>
+
+  <text x="300" y="700" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="16" font-weight="600" letter-spacing="1" fill="#FEF3C7" text-anchor="middle">
+    Bolalar va o'smirlar adabiyoti durdonasi
+  </text>
+
+  <!-- Publisher Footer -->
+  <text x="300" y="810" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="16" font-weight="800" letter-spacing="3" fill="#FEF3C7" text-anchor="middle">
+    NIHOL NASHR
+  </text>
+</svg>
